@@ -16,11 +16,11 @@ fi
 #  on - oepn test case, off - close test case, Default is on.
 declare -A case_map=(
 #  1 - The driver must support SSP.
-["driver_must_support_ssp"]="on"
+["driver_must_support_ssp"]="off"
 #  2 - Disk negotiated link rate query.
 ["physical_data_rate"]="on"
 #  3 - File transfer stability test.
-["stable_2GB_file_transfer"]="on" 
+["stable_2GB_file_transfer"]="off" 
 #  4 - Phy control through sysfs.
 #  "Be careful:This test case is used only in the environment where the board is connected directly to the disk."
 ["phy_control_through_sysfs"]="off"
