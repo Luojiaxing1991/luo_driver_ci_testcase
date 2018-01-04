@@ -11,6 +11,9 @@ metadata:
         scope:
                 - functional
 
+        environment:
+                - lava-test-shell
+
 run:
         steps:
                 - 'sudo ./ci_testcase/sas_autotest/sas_main.sh'
