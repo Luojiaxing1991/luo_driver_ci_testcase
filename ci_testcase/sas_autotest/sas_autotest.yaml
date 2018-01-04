@@ -1,9 +1,9 @@
 metadata:
-        name: physical data rate
+        name: physical_data_rate
         format: "Lava-Test-Shell Test Definition 1.0"
         description: "disk negotiation link rate query"
         maintainer:
-                - arthur.she@linaro.org
+                - luojiaxing@huawei.com
         os:
                 - ubuntu
         devices:
