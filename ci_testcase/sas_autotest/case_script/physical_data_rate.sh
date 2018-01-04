@@ -25,7 +25,7 @@ function disk_negotiated_link_rate_query()
             fi
         done
 
-        if [ $BRate -eq 1 ]
+        if [ $BRate -eq 0 ]
         then
             writeFail "\"${dir}\" negotiated link rate query ERROR."
 	    lava-test-case disk_negotiated_link_rate_query --result fail
