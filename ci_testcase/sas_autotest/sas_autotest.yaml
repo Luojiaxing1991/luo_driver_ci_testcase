@@ -13,7 +13,7 @@ metadata:
 
 run:
         steps:
-                - 'sudo ./luo_driver_ci_testcase/ci_testcase/sas_autotest/sas_main.sh'
+                - 'sudo ./ci_testcase/sas_autotest/sas_main.sh'
 
 parse:
         pattern: "(?P<test_case_id>[ /a-zA-Z0-9]+): (?P<result>[A-Z]+)"
