@@ -14,6 +14,7 @@ function disk_negotiated_link_rate_query()
         [ x"$type" != x"end device" ] && continue
         
         rate_value=`cat ${PHY_FILE_PATH}/${dir}/negotiated_linkrate | awk -F '.' '{print $1}'`
+	echo $rate_value
         BRate=1
         for rate in `echo $DISK_NEGOTIATED_LINKRATE_VALUE | sed 's/|/ /g'`
         do
@@ -27,9 +28,13 @@ function disk_negotiated_link_rate_query()
         if [ $BRate -eq 1 ]
         then
             writeFail "\"${dir}\" negotiated link rate query ERROR."
+	    lava-test-case disk_negotiated_link_rate_query --result fail
             return 1
         fi
     done
+
+    lava-test-case disk_negotiated_link_rate_query --result pass
+
     writePass
 }
 
@@ -41,4 +46,4 @@ function main()
 }
 
 main
-
+exit 0
