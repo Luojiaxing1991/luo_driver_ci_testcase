@@ -3,6 +3,8 @@
 # Disk negotiated link rate query
 # IN : N/A
 # OUT: N/A
+
+
 function disk_negotiated_link_rate_query()
 {
     Test_Case_Title="disk_negotiated_link_rate_query"
@@ -45,5 +47,7 @@ function main()
     disk_negotiated_link_rate_query
 }
 
+
+PATH="./../../bin:${PATH}"
 main
 exit 0
