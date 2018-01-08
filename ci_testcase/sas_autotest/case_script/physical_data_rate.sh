@@ -35,7 +35,7 @@ function disk_negotiated_link_rate_query()
         fi
     done
 
-    lava-test-case disk_negotiated_link_rate_query --result pass
+    lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result pass
 
     writePass
 }
