@@ -22,12 +22,12 @@ dir_meta = {
         'description':'nothing to say',
         'maintainer':[tmpCfg.nor_maintainer],
         'os':[tmpCfg.ci_os],
-        'device':[tmpCfg.ci_device],
+        'devices':[tmpCfg.ci_device],
         'scope':[tmpCfg.nor_scope],
         'environment':[tmpCfg.nor_env]
         }
 
-dir_run = {'step':['sudo ./ci_testcase/sas_autotest/sas_main.sh']}
+dir_run = {'steps':['sudo ./ci_testcase/sas_autotest/sas_main.sh']}
 
 dir_parse = {'pattern':"(?P<test_case_id>[ /a-zA-Z0-9]+): (?P<result>[A-Z]+)"}
 
