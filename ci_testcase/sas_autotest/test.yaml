@@ -1,19 +1,19 @@
 metadata:
   description: nothing to say
   device:
-  - rtsm_fvp_base-aemv8a
+    - rtsm_fvp_base-aemv8a
   environment:
-  - lava-test-shell
+    - lava-test-shell
   format: Lava-Test-Shell Test Definition 1.0
   maintainer:
-  - luojiaxing@huawei.com
+    - luojiaxing@huawei.com
   name: sas_test
   os:
-  - ubuntu
+    - ubuntu
   scope:
-  - functional
+    - functional
 parse:
   pattern: '(?P<test_case_id>[ /a-zA-Z0-9]+): (?P<result>[A-Z]+)'
 run:
   step:
-  - sudo ./ci_testcase/sas_autotest/sas_main.sh
+    - sudo ./ci_testcase/sas_autotest/sas_main.sh
