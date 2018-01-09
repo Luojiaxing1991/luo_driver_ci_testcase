@@ -1,7 +1,7 @@
 metadata:
   description: nothing to say
   device:
-  - rtsm_fvp_base_aemv8a
+  - rtsm_fvp_base-aemv8a
   environment:
   - lava-test-shell
   format: Lava-Test-Shell Test Definition 1.0

@@ -3,7 +3,7 @@
 class YConf:
     ci_format = "Lava-Test-Shell Test Definition 1.0"
     ci_os     = "ubuntu"
-    ci_device = "rtsm_fvp_base_aemv8a"
+    ci_device = "rtsm_fvp_base-aemv8a"
     nor_maintainer = "luojiaxing@huawei.com"
     nor_scope = "functional"
     nor_env   = "lava-test-shell"
