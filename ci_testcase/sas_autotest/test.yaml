@@ -4,7 +4,7 @@ metadata:
   - rtsm_fvp_base_aemv8a
   environment:
   - lava-test-shell
-  format: lava-Test-Shell Test Definition 1.0
+  format: Lava-Test-Shell Test Definition 1.0
   maintainer:
   - luojiaxing@huawei.com
   name: sas_test
