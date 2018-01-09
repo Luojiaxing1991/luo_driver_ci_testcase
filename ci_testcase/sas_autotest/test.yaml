@@ -1,0 +1,5 @@
+!CI_yaml
+metadata:
+  maintainer:
+  - luojiaxing
+  os: 'ubuntu: os'
