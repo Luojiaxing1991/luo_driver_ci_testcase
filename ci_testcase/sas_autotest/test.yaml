@@ -1,6 +1,6 @@
 metadata:
   description: nothing to say
-  device:
+  devices:
     - rtsm_fvp_base-aemv8a
   environment:
     - lava-test-shell
