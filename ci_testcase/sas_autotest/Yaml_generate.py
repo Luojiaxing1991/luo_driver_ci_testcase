@@ -39,4 +39,14 @@ yaml.dump(ci,f,default_flow_style=False)
 
 f.close()
 
+f = open('test.yaml',"r")
+
+lines = f.readlines()
+
+f = open('test.yaml',"w")
+
+f.writelines(lines[1:])
+
+f.close()
+
 print f
