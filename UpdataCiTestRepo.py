@@ -2,9 +2,15 @@
 
 import os
 
+import sys
+
 import pexpect
 
 import time
+
+import commands
+
+import string
 
 #get the current path,this path is no including the file name
 pwd = os.getcwd()
@@ -12,15 +18,46 @@ pwd = os.getcwd()
 os.chdir(pwd)
 
 
+
 #get the CI test case repo
 gitrepo = 'https://github.com/Luojiaxing1991/luo_driver_ci_testcase.git'
 
-#git clone
-#os.system('git clone %s'%gitrepo)
-
-
 print(gitrepo.split("/")[-1][:-4])
+
 RepoDir = gitrepo.split("/")[-1][:-4]
+
+os.chdir('%s/ci_testcase'%RepoDir)
+
+
+#we find out if the Repo is update within 30 minutes
+#if so ,we need to update the CI
+#if not,we do nothing 
+tmpformate = '--pretty=format:%cd'
+tmpres,loginfo = commands.getstatusoutput('git log remotes/origin/master  %s -1 --date=relative'%(tmpformate))
+print(loginfo)
+print(loginfo)
+
+tmpvalue = string.atoi(loginfo.split(" ")[0])
+
+tmpunit = loginfo.split(" ")[1]
+
+print(tmpvalue)
+print(tmpunit)
+
+if tmpunit == 'minutes':
+    if tmpvalue > 30:
+        print('Repo is not updated,Stop')
+        sys.exit(0)
+elif tmpunit != 'seconds':
+    print('Repo is not updated,Stop')
+    sys.exit(0)
+
+print('Repo is updated,Keep running!')
+os.chdir(pwd)
+os.system('rm -rf  %s'%RepoDir)
+
+#git clone
+os.system('git clone %s'%gitrepo)
 
 #cd to the git/ci_testcase 
 #os.system('cd %s/ci_testcase'%RepoDir)
@@ -39,4 +76,4 @@ os.system('expect github.sh')
 os.chdir(pwd)
 
 
-#os.system('rm -rf  %s'%RepoDir)
+
