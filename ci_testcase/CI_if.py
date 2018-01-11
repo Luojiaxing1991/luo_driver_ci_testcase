@@ -4,15 +4,15 @@ import os
 
 import sys
 
-gpus = sys.argv[1]
-batch_size = sys.argv[2]
+#gpus = sys.argv[1]
+#batch_size = sys.argv[2]
 
-print gpus
-print batch_size
+#print gpus
+#print batch_size
 
 #This function get the dir name in curr dir
 #return: the name list of dir name
-def file_name(file_dir):
+def get_dir_name(file_dir):
     for root,dirs,files in os.walk(file_dir):
         #we need to get the dirlist in current document
         if root==file_dir:
@@ -24,7 +24,7 @@ def file_name(file_dir):
 pwd = os.getcwd()
 
 #get the dir name list
-dirlist = file_name(pwd)
+dirlist = get_dir_name(pwd)
 
 #output the dir name for debug
 print(dirlist)
@@ -43,4 +43,12 @@ for i in range(len(dirlist)):
 #output the ci dir name
 print(cidir)
 
+currdir = '%s/sas_autotest'%pwd
+
+print(currdir)
+
+
+#Yaml_generate.py have two input para:
+#1.workspace path 2.current path
+os.system("python Yaml_generate.py %s %s"%(currdir,pwd))
 
