@@ -12,3 +12,7 @@ send "Luojiaxing1991\r"
 expect "Password for 'https://Luojiaxing1991@github.com':"
 
 send "ljxfyjh1321\r"
+
+expect eof
+
+exit
