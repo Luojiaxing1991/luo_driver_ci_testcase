@@ -26,14 +26,13 @@ def get_file_name(file_dir):
 
     return none
 
+#filelist list all file in current dir
 filelist = get_file_name(pwd)
 
-print filelist
-
+#tmpDirName mean the current dir name. like sas_autotest
 tmpDirName = sys.argv[1].split("/")[-1]
 
-print tmpDirName
-
+#targetfile mean the yaml file which descrip the test module
 targetfile = '%s.yaml'%tmpDirName
 
 #find if the yaml with the same name of root dir.if not new it
@@ -43,16 +42,11 @@ for tmpfile in filelist:
         tmpHaveyaml = 1
         print('the yaml file is now exit')
 
-print(tmpHaveyaml)
-
 if tmpHaveyaml == 0:
-    os.mknod('%s/sas_autotest.yaml'%pwd)
+    os.mknod(targetfile)
     print('new the yaml file')
 else:
     print('use the exit file')
-
-
-print(get_file_name(pwd))
 
 
 #the Yaml_conf save the CI config  and static config
@@ -70,7 +64,7 @@ class CI_yaml(yaml.YAMLObject):
 tmpCfg = YConf.getYConf()
 
 dir_meta = {
-        'name': 'sas_test',
+        'name': tmpDirName,
         'format': tmpCfg.ci_format,
         'description':'nothing to say',
         'maintainer':[tmpCfg.nor_maintainer],
@@ -80,7 +74,13 @@ dir_meta = {
         'environment':[tmpCfg.nor_env]
         }
 
-dir_run = {'steps':['sudo ./ci_testcase/sas_autotest/sas_main.sh']}
+#find the main file name to run the autotest
+for mainfile in filelist:
+    if mainfile[-7:] == 'main.sh':
+        break
+ 
+
+dir_run = {'steps':['sudo ./ci_testcase/%s/%s'%(tmpDirName,mainfile)]}
 
 dir_parse = {'pattern':"(?P<test_case_id>[ /a-zA-Z0-9]+): (?P<result>[A-Z]+)"}
 
@@ -104,7 +104,11 @@ f.close()
 
 print f
 
+#every time it finish create YAML file,should run git add commands
+os.system('git add %s'%targetfile)
+
 #after generate the YAML file ,we need to turn back to py dir
 os.chdir(sys.argv[2])
 
-print(os.getcwd())
+print('Finish create %s YAML file!'%tmpDirName)
+

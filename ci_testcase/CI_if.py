@@ -43,12 +43,14 @@ for i in range(len(dirlist)):
 #output the ci dir name
 print(cidir)
 
-currdir = '%s/sas_autotest'%pwd
 
-print(currdir)
+for targetdir in cidir:
+    currdir = '%s/%s'%(pwd,targetdir)
+
+    print(currdir)
 
 
-#Yaml_generate.py have two input para:
-#1.workspace path 2.current path
-os.system("python Yaml_generate.py %s %s"%(currdir,pwd))
+    #Yaml_generate.py have two input para:
+    #1.workspace path 2.current path
+    os.system("python Yaml_generate.py %s %s"%(currdir,pwd))
 
