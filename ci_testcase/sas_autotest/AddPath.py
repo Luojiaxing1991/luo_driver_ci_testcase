@@ -4,6 +4,8 @@ import os
 
 pwd = os.getcwd()
 
+#pwd = '/lava-hip06-d03/tests/fefeffefe'
+
 tmpPath = [pwd]
 
 tmp1 = pwd.split("/")
@@ -19,5 +21,8 @@ for name in tmp1:
 
 targetdir='%s/bin'%pwd[0:tmpLen]
 
-os.system('PATH="${targetdir}:PATH"')
+print(targetdir)
 
+os.system('PATH="%s:${PATH}"'%targetdir)
+
+#os.system('echo $PATH')
