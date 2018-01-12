@@ -6,8 +6,6 @@ pwd = os.getcwd()
 
 #pwd = '/lava-hip06-d03/tests/fefeffefe'
 
-tmpPath = [pwd]
-
 tmp1 = pwd.split("/")
 
 tmp1.pop(0)
@@ -23,6 +21,6 @@ targetdir='%s/bin'%pwd[0:tmpLen]
 
 print(targetdir)
 
-os.system('PATH="%s:${PATH}"'%targetdir)
+os.system('cp -r %s/lava-test-case /usr/local/bin'%targetdir)
 
-#os.system('echo $PATH')
+os.system('ls -a /usr/local/bin')
