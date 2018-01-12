@@ -39,6 +39,10 @@ function main()
     done
 }
 
+
+
+PATH="./../bin:${PATH}"
+
 #Output log file header
 writeLogHeader
 

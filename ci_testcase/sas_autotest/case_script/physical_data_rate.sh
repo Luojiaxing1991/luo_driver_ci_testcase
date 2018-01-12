@@ -30,12 +30,12 @@ function disk_negotiated_link_rate_query()
         if [ $BRate -eq 1 ]
         then
             writeFail "\"${dir}\" negotiated link rate query ERROR."
-	    lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result fail
+	   # lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result fail
             return 1
         fi
     done
 
-    lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result pass
+   # lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result pass
 
     writePass
 }
@@ -48,6 +48,6 @@ function main()
 }
 
 
-PATH="./../../bin:${PATH}"
+#PATH="./../../bin:${PATH}"
 main
 exit 0
