@@ -13,7 +13,7 @@ tmp1.pop(0)
 tmpLen = 0
 
 for name in tmp1:
-    if name == 'ci_testcase':
+    if name == 'tests':
         break
     tmpLen = tmpLen + len(name) + 1
 
