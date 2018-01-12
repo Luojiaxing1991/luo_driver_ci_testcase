@@ -42,7 +42,7 @@ function main()
 
 #lava-test-case的定义位于hip06D03-06/bin文件夹，我们的ci_testcase文件夹也与bin位于同一层文件夹
 PATH="./../bin:${PATH}"
-echo $PAHT
+echo $PATH
 #Output log file header
 writeLogHeader
 
