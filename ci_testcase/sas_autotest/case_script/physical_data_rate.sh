@@ -3,24 +3,21 @@
 # Disk negotiated link rate query
 # IN : N/A
 # OUT: N/A
-
-
 function disk_negotiated_link_rate_query()
 {
     Test_Case_Title="disk_negotiated_link_rate_query"
-    Test_Case_ID="ST.FUNC.002/ST.FUNC.003"
-    
+    Test_Case_ID="ST.FUNC.005/ST.FUNC.006"
+
     for dir in `ls ${PHY_FILE_PATH}`
     do
-        type=`cat ${PHY_FILE_PATH}/${dir}/device_type`
-        [ x"$type" != x"end device" ] && continue
-        
+        type=`cat ${PHY_FILE_PATH}/${dir}/target_port_protocols`
+        [ x"${type}" = x"none" ] && continue
+
         rate_value=`cat ${PHY_FILE_PATH}/${dir}/negotiated_linkrate | awk -F '.' '{print $1}'`
-	echo $rate_value
         BRate=1
         for rate in `echo $DISK_NEGOTIATED_LINKRATE_VALUE | sed 's/|/ /g'`
         do
-            if [ $rate_value -eq $rate ]
+            if [ $(echo "${rate_value} ${rate}"|awk '{if($1=$2){print 0}else{print 1}}') -eq 0 ]
             then
                 BRate=0
                 break
@@ -30,24 +27,20 @@ function disk_negotiated_link_rate_query()
         if [ $BRate -eq 1 ]
         then
             writeFail "\"${dir}\" negotiated link rate query ERROR."
-	   # lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result fail
             return 1
         fi
     done
-
-   # lava-test-case "disk_negotiated_link_rate_query(luojiaxing_437090)" --result pass
-
     writePass
 }
 
 function main()
 {
-    JIRA_ID="PV-66/PV-69"
+    JIRA_ID="PV-1597/PV-1604"
     Test_Item="physical data rate"
+    Designed_Requirement_ID="R.SAS.F006/R.SAS.F007"
+
     disk_negotiated_link_rate_query
 }
 
-
-#PATH="./../../bin:${PATH}"
 main
-exit 0
+
