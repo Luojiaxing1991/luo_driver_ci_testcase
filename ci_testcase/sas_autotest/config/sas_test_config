@@ -18,7 +18,7 @@ declare -A case_map=(
 #  1 - The driver must support SSP / The driver must support SMP.
 ["driver_must_support"]="on"
 #  2 - Disk negotiated link rate query.
-["physical_data_rate"]="on"
+["physical_data_rate"]="off"
 #  3 - File transfer stability test.
 ["stable_2GB_file_transfer"]="off"
 #  4 - No cable unplug OOPs
