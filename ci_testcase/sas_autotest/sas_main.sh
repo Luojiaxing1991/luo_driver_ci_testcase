@@ -47,11 +47,11 @@ function main()
 echo $(pwd)
 python ${SAS_TOP_DIR}/AddPath.py
 echo $PATH
+
 #Output log file header
 writeLogHeader
 
 # Get all disk partition information
-#get_all_disk_part
 get_all_disk_part
 
 main

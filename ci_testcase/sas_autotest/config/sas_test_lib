@@ -11,11 +11,15 @@
 #  OUT: N/A
 function get_all_disk_part()
 {
+    echo 'start to get all disk part'
+
     #lisk all disk is mount on where,the maindisk is usually mount on /
     maindisk=`mount | grep -w 'on /'`
-
+    
     #we get the disk from the output str,like /dev/sda1 on / -> /dev/sda1
     maindisk=`echo ${maindisk%% *}`
+
+    echo "The system disk is: "${maindisk}
 
     for name in `fdisk -l | grep -o "/dev/[a-z]d[a-z][1-9]"`
     do
