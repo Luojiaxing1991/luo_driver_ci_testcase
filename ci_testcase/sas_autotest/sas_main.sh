@@ -19,6 +19,8 @@ function main()
 {
     Module_Name="SAS"
     
+    echo $SAS_TOP_DIR
+
     for key in "${!case_map[@]}"
     do
         echo $key " : " ${case_map[$key]}
