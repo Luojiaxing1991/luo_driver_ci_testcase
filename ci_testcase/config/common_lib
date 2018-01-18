@@ -16,7 +16,7 @@ function writePass()
     local Test_Result="PASS"
     local LavaTestName=$Test_Item
     echo "$Module_Name,""$JIRA_ID,""$Designed_Requirement_ID,""$Test_Case_ID,""$Test_Item,""$Test_Case_Title,""$Test_Result" >> ${REPORT_FILE}
-    lava-test-case "SAS_TEST" --result pass
+    lava-test-case ${Module_Name}":"${Test_Case_Title} --result pass
     return 0
 }
 

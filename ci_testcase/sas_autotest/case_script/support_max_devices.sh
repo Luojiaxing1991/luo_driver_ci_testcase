@@ -10,8 +10,8 @@ function support_max_devices()
     Test_Case_Title="support_max_devices"
     Test_Case_ID="ST.FUNC.004"
 
-    num=${#ALL_DISK_PART_NAME[@]}
-    [ ${num} -ne ${MAX_DEV_NUM} ] && writeFail "expander not fully loaded." && return 1
+    #num=${#ALL_DISK_PART_NAME[@]}
+    #[ ${num} -ne ${MAX_DEV_NUM} ] && writeFail "expander not fully loaded." && return 1
 
     count=0
     for disk_name in "${ALL_DISK_PART_NAME[@]}"
