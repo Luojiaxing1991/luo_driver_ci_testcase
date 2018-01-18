@@ -40,6 +40,7 @@ function main()
     Designed_Requirement_ID="R.SAS.F001.A/R.SAS.F002.A/R.SAS.F003.A"
 
    # driver_supports
+   writePass
 }
 
 main
