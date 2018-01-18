@@ -40,8 +40,8 @@ function main()
     Test_Item="The driver must support SSP/The driver must support SMP/The driver must support STP"
     Designed_Requirement_ID="R.SAS.F001.A/R.SAS.F002.A/R.SAS.F003.A"
 
-   #driver_supports
-   writePass
+   driver_supports
+   #writePass
 }
 
 main
