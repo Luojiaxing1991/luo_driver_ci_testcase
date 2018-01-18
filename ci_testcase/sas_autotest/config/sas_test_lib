@@ -19,7 +19,8 @@ function get_all_disk_part()
 
     for name in `fdisk -l | grep -o "/dev/[a-z]d[a-z][1-9]"`
     do
-        if $name != $maindisk then
+        if $name != $maindisk	
+	then
           ALL_DISK_PART_NAME[${#ALL_DISK_PART_NAME[*]}]=$name
 	  echo $name
         fi
