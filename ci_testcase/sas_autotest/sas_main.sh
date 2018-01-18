@@ -5,7 +5,7 @@ SAS_TOP_DIR=$(cd "`dirname $0`" ; pwd)
 
 # Load module configuration library
 . ${SAS_TOP_DIR}/config/sas_test_config
-. ${SAS_TOP_DIR}/config/sas_test_lib
+source ${SAS_TOP_DIR}/config/sas_test_lib
 
 # Load the public configuration library
 . ${SAS_TOP_DIR}/../config/common_config
@@ -45,12 +45,13 @@ function main()
 #lava-test-case的定义位于hip06D03-06/bin文件夹，我们的ci_testcase文件夹也与bin位于同一层文件夹
 #PATH="./../bin:${PATH}"
 echo $(pwd)
-python ./ci_testcase/sas_autotest/AddPath.py
+python ${SAS_TOP_DIR}/AddPath.py
 echo $PATH
 #Output log file header
 writeLogHeader
 
 # Get all disk partition information
+#get_all_disk_part
 get_all_disk_part
 
 main
