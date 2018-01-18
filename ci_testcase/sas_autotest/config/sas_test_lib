@@ -11,9 +11,18 @@
 #  OUT: N/A
 function get_all_disk_part()
 {
+    #lisk all disk is mount on where,the maindisk is usually mount on /
+    maindisk=`mount | grep -w 'on /'`
+
+    #we get the disk from the output str,like /dev/sda1 on / -> /dev/sda1
+    maindisk=`echo ${maindisk%% *}`
+
     for name in `fdisk -l | grep -o "/dev/[a-z]d[a-z][1-9]"`
     do
-        ALL_DISK_PART_NAME[${#ALL_DISK_PART_NAME[*]}]=$name
+        if $name != $maindisk then
+          ALL_DISK_PART_NAME[${#ALL_DISK_PART_NAME[*]}]=$name
+	  echo $name
+        fi
     done
 }
 
