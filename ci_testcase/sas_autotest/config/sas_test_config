@@ -39,7 +39,7 @@ declare -A case_map=(
 # 11 - support sata NCQ
 ["sata_ncq_query"]="off"
 # 12 - support Max devices
-["support_max_devices"]="off"
+["support_max_devices"]="on"
 # 13 - RAS support
 ["ras_support"]="off"
 )

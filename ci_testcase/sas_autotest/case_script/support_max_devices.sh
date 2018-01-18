@@ -16,6 +16,7 @@ function support_max_devices()
     count=0
     for disk_name in "${ALL_DISK_PART_NAME[@]}"
     do
+	echo "Start to run support max device Test on: "${disk_name}
         mkdir /mnt/${count}
         echo "y" | mkfs.ext4 ${disk_name} 1>/dev/null
         mount -t ext4 ${disk_name} /mnt/${count} 1>/dev/null
@@ -34,6 +35,7 @@ function support_max_devices()
         umount /mnt/${dir}
         rm -rf /mnt/${dir}
     done
+    echo "Support Max Devcies Test is success!"
     writePass
 }
 
