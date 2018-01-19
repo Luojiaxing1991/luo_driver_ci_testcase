@@ -14,7 +14,7 @@ function 1bit_ecc_injection()
 
     ${DEVMEM} ${MASK_REG_ADDR_VALUE} w 0x1
     trshdce_value=`${DEVMEM} ${TRSHDC_REG_ADDR_VALUE} w`
-    for reg in ${1BIT_ECC_REG_VALUE[@]}
+    for reg in ${D_1BIT_ECC_REG_VALUE[@]}
     do
         1bit_begin_count=`dmesg | grep ${ECC_INFO_KEY_QUERIES} | wc -l`
         ${DEVMEM} ${INJECT_REG_ADDR_VALUE} w 0x1
@@ -24,7 +24,7 @@ function 1bit_ecc_injection()
         ${DEVMEM} ${INJECT_REG_ADDR_VALUE} w 0x0
         cnt_value=`${DEVMEM} ${CNT_REG_ADDR_VALUE} w`
         1bit_mid_count=`dmsg | grep ${ECC_INFO_KEY_QUERIES} | wc -l`
-        if [ ${1bit_begin_count} -gt ${1bit_mid_count}  ] || [ x"${cnt_value}" == x" ${trshdce_value}"  ]
+        if [ ${D_1bit_begin_count} -gt ${D_1bit_mid_count}  ] || [ x"${cnt_value}" == x" ${trshdce_value}"  ]
         then
             writeFail "${CNT_REG_ADDR_VALUE} register address setting ${reg}, no error message is reported."
             return 1
@@ -34,7 +34,7 @@ function 1bit_ecc_injection()
         1bit_end_count=`dmsg | grep ${ECC_INFO_KEY_QUERIES} | wc -l`
         cnt_end_value=`${DEVMEM} ${CNT_REG_ADDR_VALUE} w`
 
-        if [ ${1bit_mid_count} -ne ${1bit_end_count} ] || [ x"${cnt_value}" != x" ${cnt_end_value}" ]
+        if [ ${D_1bit_mid_count} -ne ${D_1bit_end_count} ] || [ x"${cnt_value}" != x" ${cnt_end_value}" ]
         then
             writeFail "${CNT_REG_ADDR_VALUE} register address setting ${reg}, shutdown error repoted log failed."
             return 1

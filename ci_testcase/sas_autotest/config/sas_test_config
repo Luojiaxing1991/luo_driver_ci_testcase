@@ -22,7 +22,7 @@ declare -A case_map=(
 #  3 - File transfer stability test.
 ["stable_2GB_file_transfer"]="off"
 #  4 - No cable unplug OOPs
-["no_cable_unplug_oops"]="off"
+["no_cable_unplug_oops"]="on"
 #  5 - Phy control through sysfs.
 #  "Be careful:This test case is used only in the environment where the board is connected directly to the disk."
 ["phy_control_through_sysfs"]="off"
@@ -69,7 +69,7 @@ declare -a ALL_DISK_PART_NAME
 FIO_BS=("4M" "4K" "512B")
 
 # FIO tools IO Read and write mode
-FIO_RW=("randread" "randwrite" "read" "write" "rw,readwrite" "randrw")
+FIO_RW=("randread" "randwrite" "read" "write" "randrw")
 
 # FIO tools mixed read and write ratio.
 IO_RATIO=("10" "50" "90")
@@ -111,19 +111,19 @@ DISK_NEGOTIATED_LINKRATE_VALUE='1.5|3|6|12'
 
 ## 3 - stable_2GB_file_transfer
 #  Disk file data consistency test, File comparison times, Default Value is 500.
-COMPARISON_NUMBER=500
+COMPARISON_NUMBER=2
 
 ## 4 - No cable unplug OOPs
 #  Long time read / write disk, Default Value is 0.
-IS_LONG_TIME_IO_READ_WRITE=0
+IS_LONG_TIME_IO_READ_WRITE=1
 #  Long time read and write disk time, Default Value is 14400ms.
-FIO_LONG_RUN_TIME=14400
+FIO_LONG_RUN_TIME=10
 #  Repeat read / write disk, Default Value is 0.
 IS_REPEAT_IO_READ_WRITE=0
 #  Repeat read and write disks. Default value is 100 second.
-REPEAT_RW_NUMBER=100
+REPEAT_RW_NUMBER=2
 #  FIO tool to read the cycle time.
-REPEAT_RM_TIME=10
+REPEAT_RM_TIME=2
 
 ## 5 - phy_control_through_sysfs
 #  loop Rate set up function switch,  1 - oepn test, 0 - close test, Default Value is 0.

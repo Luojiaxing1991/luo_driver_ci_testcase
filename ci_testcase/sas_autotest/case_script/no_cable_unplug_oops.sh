@@ -15,6 +15,7 @@ function disk_file_data_consistency_test()
     md5_init_value=`md5sum /opt/test.img | awk -F ' ' '{print $1}'`
     for disk_name in "${ALL_DISK_PART_NAME[@]}"
     do
+	echo "Start to run data_consistency Test on: "${disk_name}
         mount_disk ${disk_name}
         if [ $? -ne 0 ]
         then
@@ -25,8 +26,12 @@ function disk_file_data_consistency_test()
 
         for i in `seq ${COMPARISON_NUMBER}`
         do
-            cp /opt/test.img /mnt/test.img.$i
+	    echo "start to cp from opt to mnt"
+            
+	    cp /opt/test.img /mnt/test.img.$i
             md5_curr_value=`md5sum /mnt/test.img.$i | awk -F ' ' '{print $1}'`
+            
+	    echo "start to check md5"
 
             if [ x"${md5_init_value}" != x"${md5_curr_value}" ]
             then
@@ -40,7 +45,7 @@ function disk_file_data_consistency_test()
 
         umount ${disk_name}
     done
-
+    echo "data contensisty Test success!"
     writePass
 }
 
@@ -80,6 +85,8 @@ function main()
     JIRA_ID="PV-1726"
     Test_Item="No cable unplug OOPs"
     Designed_Requirement_ID="R.SAS.N006.A"
+    
+    fio_config
 
     #Disk file data consistency test
     disk_file_data_consistency_test

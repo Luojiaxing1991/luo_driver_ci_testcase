@@ -10,6 +10,7 @@ function iozne_file_transfer_stability_test()
 
     for disk_name in "${ALL_DISK_PART_NAME[@]}"
     do
+        echo "Start 2G File tragnsfer on: "${disk_name}
         mount_disk ${disk_name}
         if [ $? -ne 0 ]
         then
@@ -30,7 +31,7 @@ function iozne_file_transfer_stability_test()
         umount ${disk_name}
         rm -f ${ERROR_INFO}
     done
-
+    echo "2G File transfer Test is success!"
     writePass
 }
 
