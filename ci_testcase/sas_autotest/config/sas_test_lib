@@ -72,6 +72,7 @@ function IO_read_write()
         sed -i "{s/^bs=.*/bs=${bs}/g;}" fio.conf
         for rw in "${FIO_RW[@]}"
         do
+            echo "Runing IO_Read_Write of "${rw}
             sed -i "{s/^rw=.*/rw=${rw}/g;}" fio.conf
             ${SAS_TOP_DIR}/../${COMMON_TOOL_PATH}/fio fio.conf
             if [ $? -ne 0 ]
