@@ -11,6 +11,9 @@ import os
 
 pwd = sys.argv[1]
 
+#to avoid the pyc file generate
+sys.dont_write_bytecode = True
+
 #we need to into the work dir to avoid generate some bug file to destroy
 #the generate file of CI
 os.chdir(pwd)
