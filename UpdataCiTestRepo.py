@@ -65,13 +65,13 @@ os.chdir('%s/ci_testcase'%RepoDir)
 
 print(os.getcwd())
 
-os.system('python CI_if.py')
+os.system('python ci_interface/if/CI_if.py')
 
 print(time.strftime('%Y-%m-%d',time.localtime(time.time())))
 
 os.system('git commit -m \'ci test case new generate:%s\' '%time.strftime('%Y-%m-%d',time.localtime(time.time())))
 
-os.system('expect github.sh')
+os.system('expect ci_interface/if/github.sh')
 
 os.chdir(pwd)
 
