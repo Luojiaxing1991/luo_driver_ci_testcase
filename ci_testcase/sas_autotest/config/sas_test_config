@@ -16,7 +16,7 @@ fi
 #  on - oepn test case, off - close test case, Default is on.
 declare -A case_map=(
 #  1 - The driver must support SSP / The driver must support SMP.
-["driver_must_support"]="on"
+["driver_must_support"]="off"
 #  2 - Disk negotiated link rate query.
 ["physical_data_rate"]="off"
 #  3 - File transfer stability test.
