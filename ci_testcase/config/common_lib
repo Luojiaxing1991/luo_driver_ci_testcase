@@ -17,6 +17,7 @@ function writePass()
     local LavaTestName=$Test_Item
     echo "$Module_Name,""$JIRA_ID,""$Designed_Requirement_ID,""$Test_Case_ID,""$Test_Item,""$Test_Case_Title,""$Test_Result" >> ${REPORT_FILE}
     lava-test-case ${Module_Name}":"${Test_Case_Title} --result pass
+    echo ${Module_Name}":"${Test_Case_Title}": Success!"
     return 0
 }
 
@@ -29,7 +30,8 @@ function writeFail()
     local Remark="$1"
     local LavaTestName=$Test_Item
     echo "$Module_Name,""$JIRA_ID,""$Designed_Requirement_ID,""$Test_Case_ID,""$Test_Item,""$Test_Case_Title,""$Test_Result,""$Remark" >> ${REPORT_FILE}
-    lava-test-case "SAS_TEST" --result fail
+    lava-test-case ${Module_Name}":"${Test_Case_Title} --result fail
+    echo ${Module_Name}":"${Test_Case_Title}": Fail!"
     return 0
 }
 

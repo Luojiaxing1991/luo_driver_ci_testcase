@@ -27,7 +27,7 @@ res,stat = commands.getstatusoutput('which lava-tool')
 
 #call the lava-tool to submit the job
 if res == 0:
-    print('lava-tool submit-job http://default@192.168.3.100:8089/RPC2/ %s'%target)
-   # os.system('lava-tool submit-job http://default@192.168.3.100:8089/RPC2/ %s'%jsonfile)
+   # print('lava-tool submit-job http://default@192.168.3.100:8089/RPC2/ %s'%target)
+    os.system('lava-tool submit-job http://default@192.168.3.100:8089/RPC2/ %s'%jsonfile)
 else:
     print('lava-tool command is not exist')
