@@ -1,4 +1,17 @@
+#! /bin/bash
 
+function testpass()
+{
+  echo 'CmdACPI Test is success!'
+  lava-test-case "PCIE:CmdACPI" --result pass
+        
+}
+function testfail()
+{
+  echo 'CmdACPI Test is fail!'
+  lava-test-case "PCIE:CmdACPI" --result fail      
+
+}
 g_flParent="${BASH_SOURCE[1]}"
 g_fnCur=$(basename "${BASH_SOURCE[0]}")
 g_dpCur=$(dirname  "${BASH_SOURCE[0]}")
@@ -9,6 +22,8 @@ cd "${drCur0}" >/dev/null
 g_pfnCur=${g_dpCur}/${g_fnCur}
 export g_fn_testcase_common=${g_fnCur}
 export g_dp_testcase_common=${g_dpCur}
+
+
 
 #####################
 #check load from command line
@@ -85,8 +100,14 @@ CmdACPI()
     if [ $? -ne 0 ]; then
         g_sErrCur="not have acpi=force in cmdline"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+       # echo 'CmdACPI Test is success!'
+       # lava-test-case "PCIE:CmdACPI" --result pass
+        testpass
         return 1
     fi
+    #echo 'CmdACPI Test is fail!'
+    #lava-test-case "PCIE:CmdACPI" --result fail  
+    testfail  
     return 0
 }
 export -f CmdACPI
