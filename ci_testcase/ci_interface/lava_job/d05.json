@@ -55,7 +55,7 @@
         }
     ],
     "device_type": "hip07-d05",
-    "job_name": "plinth-release-plinth-4.15.0+_+300e39166a78fb18af5231a5631bfbc500db55ee-arm64-defconfig+plinth-config-hip07-d05.dtb-hip07-d05-weekly-testingd05-acpi-weekly-temp",
+    "job_name": "plinth-release-plinth-4.15.0+_+300e39166a78fb18af5231a5631bfbc500db55ee-arm64-defconfig+plinth-config-hip07-d05.dtb_SAS_Test",
     "logging_level": "DEBUG",
     "priority": "high",
     "timeout": 172800
