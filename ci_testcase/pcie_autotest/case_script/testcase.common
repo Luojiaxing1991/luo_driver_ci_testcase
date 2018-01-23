@@ -2,14 +2,16 @@
 
 function testpass()
 {
+  local tmp=${1}
   echo 'CmdACPI Test is success!'
-  lava-test-case "PCIE:CmdACPI" --result pass
+  lava-test-case "PCIE:"${tmp} --result pass
         
 }
 function testfail()
 {
+  local tmp=${1}
   echo 'CmdACPI Test is fail!'
-  lava-test-case "PCIE:CmdACPI" --result fail      
+  lava-test-case "PCIE:"${tmp} --result fail      
 
 }
 g_flParent="${BASH_SOURCE[1]}"
@@ -102,12 +104,12 @@ CmdACPI()
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
        # echo 'CmdACPI Test is success!'
        # lava-test-case "PCIE:CmdACPI" --result pass
-        testpass
+        testfail "CmdACPI"
         return 1
     fi
     #echo 'CmdACPI Test is fail!'
     #lava-test-case "PCIE:CmdACPI" --result fail  
-    testfail  
+    testpass  "CmdACPI"
     return 0
 }
 export -f CmdACPI
@@ -124,6 +126,7 @@ CheckCard2KeysBA()
     if [ -z "${bdfA}" ]; then
         g_sErrCur="not have ${sKey1}"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+	testfail "MSIx"${1}
         return 1
     fi
 
@@ -132,9 +135,10 @@ CheckCard2KeysBA()
     if [ $? -ne 0 ]; then
         g_sErrCur="not have ${sKey2}"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+	testfail "MSIx"${1}
         return 1
     fi
-
+    testpass "MSIx"${1}
     return 0
 }
 export -f CheckCard2KeysBA
@@ -151,6 +155,7 @@ DmesgCard2KeyBA()
     if [ -z "${bdfA}" ]; then
         g_sErrCur="not have ${sKey1}"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+	testfail "Preferch"${1}${2}
         return 1
     fi
 
@@ -159,9 +164,10 @@ DmesgCard2KeyBA()
     if [ $? -ne 0 ]; then
         g_sErrCur="not have ${sKey2}"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+	testfail "Preferch"${1}${2}
         return 1
     fi
-
+    testpass "Preferch"${1}${2}
     return 0
 }
 export -f DmesgCard2KeyBA
@@ -179,9 +185,10 @@ ACPICard()
     if [ -z "${bdfA}" ]; then
         g_sErrCur="not have ${sKey1}"
         printf "%s[%3d]%5s: ${g_sErrCur}\n" "${FUNCNAME[0]}" ${LINENO} "Error" >> "${g_flLog}"
+	testfail "CmdACPI"${1}
         return 1
     fi
-
+    testpass "CmdACPI"${1}
     CmdACPI
 }
 export -f ACPICard

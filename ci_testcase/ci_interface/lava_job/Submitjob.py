@@ -10,7 +10,7 @@ import sys
 import commands
 
 #save the path of json
-jsonfile = sys.argv[1]
+jsonfile = 'job_No_Submit.json'#sys.argv[1]
 
 pwd = os.path.split(os.path.realpath(__file__))[0]
 
