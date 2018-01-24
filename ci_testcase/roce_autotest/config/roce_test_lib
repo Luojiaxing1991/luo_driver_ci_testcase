@@ -1,10 +1,11 @@
 #!/bin/bash
 # 
 
+CUR=$(cd "`dirname $0`" ; pwd)
 
 # Load configuration options
-. roce_autotest/config/roce_test_config
-. config/common_lib
+. ${CUR}/config/roce_test_config
+. ${CUR}/../config/common_lib
 
 ## Utility function
 
