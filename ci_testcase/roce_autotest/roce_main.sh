@@ -35,9 +35,8 @@ function main()
 }
 
 #get the internet ip of servcie
-LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'
+CurrIp=`LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
 
-CurrIp=$1
 print ${CurrIp}
 #get the BACK_IP
 declare -A ip_map
@@ -48,18 +47,18 @@ ip_map=(
 
 for tmpip in "${!ip_map[@]}"
 do
- if ${tmpip} == $CurrIp
- then
+ if [ "$tmpip"x = "$CurrIp"x ];then
+	echo "UPdate:"${BACK_IP}
 	BACK_IP=${ip_map[$tmpip]}
  fi
 done
 
-
+echo "The slave ip is: "${BACK_IP}
 
 # Output log file header
-#writeLogHeader
+writeLogHeader
 
-#TrustRelation ${BACK_IP}
+TrustRelation ${BACK_IP}
 #copy_tool_so
 #main
 
