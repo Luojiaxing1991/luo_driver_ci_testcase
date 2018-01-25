@@ -39,8 +39,6 @@
 			     "Maintainer": "Luojiaxing"
 			},
 			"testdef": "ci_testcase/sas_autotest/sas_autotest.yaml"
-
-
                     }
                 ],
                 "timeout": 172800
@@ -56,8 +54,6 @@
 			     "Maintainer": "Fangjian"
 			},
 			"testdef": "ci_testcase/pcie_autotest/pcie_autotest.yaml"
-
-
                     }
                 ],
                 "timeout": 172800
@@ -73,8 +69,6 @@
 			     "Maintainer": "Fangjian"
 			},
 			"testdef": "ci_testcase/roce_autotest/roce_autotest.yaml"
-
-
                     }
                 ],
                 "timeout": 172800
@@ -90,8 +84,6 @@
 			     "Maintainer": "Fangjian"
 			},
 			"testdef": "ci_testcase/xge_autotest/xge_autotest.yaml"
-
-
                     }
                 ],
                 "timeout": 172800
