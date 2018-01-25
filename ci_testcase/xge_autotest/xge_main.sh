@@ -38,11 +38,11 @@ function main()
     done
 
 }
-
+echo 'start xge test'
 #get the internet ip of servcie
 CurrIp=`LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
 
-print ${CurrIp}
+echo ${CurrIp}
 #get the BACK_IP
 declare -A ip_map
 ip_map=(
