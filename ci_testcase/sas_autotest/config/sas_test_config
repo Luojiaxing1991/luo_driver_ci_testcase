@@ -44,6 +44,8 @@ declare -A case_map=(
 ["ras_support"]="off"
 )
 
+CURR_ENV_REG_ADDR="0xa2000028"
+
 #  The PHY number of the controller
 EFFECTIVE_PHY_NUM=11
 

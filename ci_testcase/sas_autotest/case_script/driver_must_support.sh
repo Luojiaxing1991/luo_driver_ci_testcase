@@ -40,7 +40,13 @@ function main()
     Test_Item="The driver must support SSP/The driver must support SMP/The driver must support STP"
     Designed_Requirement_ID="R.SAS.F001.A/R.SAS.F002.A/R.SAS.F003.A"
 
-   driver_supports
+    #driver_must include three test case:
+    # 1. SSP
+    # 2. SMP
+    # 3. STP
+
+    #we cycly run the test using the same code but different hw and env 
+    driver_supports
    #writePass
 }
 

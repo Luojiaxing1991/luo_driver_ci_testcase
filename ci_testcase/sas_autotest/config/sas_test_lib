@@ -1,7 +1,14 @@
 #!/bin/bash
 # 
 
+function judge_network_env()
+{
+  info=`${DEVMEM} ${CURR_ENV_REG_ADDR} w`
+  [x"${info}" == x"0x00000000"] && return 0 #expander
 
+  #directly connect
+  return 1
+}
 
 ## Utility function
 #
