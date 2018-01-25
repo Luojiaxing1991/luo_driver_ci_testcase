@@ -35,7 +35,7 @@ function main()
 }
 
 #get the internet ip of servcie
-CurrIp=`LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
+CurrIp=`LC_ALL=C ifconfig eth0 | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
 
 print ${CurrIp}
 #get the BACK_IP

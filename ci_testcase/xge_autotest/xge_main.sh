@@ -36,7 +36,30 @@ function main()
             ;;
        esac
     done
+
 }
+
+#get the internet ip of servcie
+CurrIp=`LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
+
+print ${CurrIp}
+#get the BACK_IP
+declare -A ip_map
+ip_map=(
+["192.168.3.238"]="192.168.3.211"
+["192.168.3.211"]="192.168.3.238"
+)
+
+for tmpip in "${!ip_map[@]}"
+do
+ if [ "$tmpip"x = "$CurrIp"x ];then
+	echo "UPdate:"${BACK_IP}
+	BACK_IP=${ip_map[$tmpip]}
+ fi
+done
+
+echo "The slave ip is: "${BACK_IP}
+
 
 # Output log file header
 writeLogHeader
