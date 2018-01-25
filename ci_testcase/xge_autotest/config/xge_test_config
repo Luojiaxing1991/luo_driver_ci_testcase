@@ -27,7 +27,7 @@ TEST_CASE_PATH="xge_autotest/case_script"
 BACK_IP=192.168.1.200
 
 
-tmp=`dmesg | grep -i "renamed from eth1 -w"`
+tmp=`dmesg | grep -i "renamed from eth1" -w`
 tmp1=`echo ${tmp%:*}`
 HNS_ETH1=`echo ${tmp1##* }`
 

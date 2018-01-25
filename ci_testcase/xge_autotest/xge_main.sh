@@ -40,7 +40,7 @@ function main()
 }
 echo 'start xge test'
 #get the internet ip of servcie
-CurrIp=`LC_ALL=C ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
+CurrIp=`LC_ALL=C ifconfig eth0 | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d: -f2 | awk '{print $1}'`
 
 echo ${CurrIp}
 #get the BACK_IP
@@ -67,7 +67,7 @@ writeLogHeader
 # 
 setTrustRelation
 
-main
+#main
 
 # clean exit so lava-test can trust the results
 exit 0
