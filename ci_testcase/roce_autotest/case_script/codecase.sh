@@ -6,7 +6,14 @@
 function codecase()
 {
 	for index in `seq ${START_INDEX} ${END_INDEX}`
-	do 
+	do
+		echo "Check the eth3 is link or not"
+                if [ x"$IS_ETH3_OK" = x"no" ];then
+			echo "eth3 is link well,so test fail "
+			writeFail
+			continue
+		fi
+	       	
 		${TEST_CASE_PATH}/server-auto-5-2 ${index} 5 > code_server_${index} &
 		ssh root@${BACK_IP} " ./${CASEPATH}/client-auto-5-2 ${index} 5 > code_client_${index} "
 		wait

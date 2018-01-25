@@ -8,10 +8,10 @@ cfgdir=$(cd "`dirname $0`" ; pwd)
 # Test case mapping table
 declare -A case_map
 case_map=(
-["codecase"]="off" 
+["codecase"]="on" 
 ["gid-ip"]="off" 
 ["gid-mac"]="off" 
-["RoceSend"]="off" 
+["RoceSend"]="on" 
 ["RdmaRead"]="off" 
 ["RdmaWrite"]="off" 
 ["SupportPD"]="off" 
@@ -35,3 +35,12 @@ CASEPATH="roce-test"
 
 # Start the machine environment IP
 BACK_IP=192.168.1.250
+
+tmp1=`dmesg | grep -i "renamed from eth3" -w`
+tmp2=`echo ${tmp1%:*}`
+ROCE_ETH3=`echo ${tmp2##* }`
+
+ifconfig $ROCE_ETH3 192.168.3.64 netmask 255.255.255.0
+
+tmp3=`ethtool $ROCE_ETH3 | grep -i "link detected" -w`
+IS_ETH3_OK=`echo ${tmp3##* }`

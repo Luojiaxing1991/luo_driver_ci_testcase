@@ -59,8 +59,8 @@ echo "The slave ip is: "${BACK_IP}
 writeLogHeader
 
 TrustRelation ${BACK_IP}
-#copy_tool_so
-#main
+copy_tool_so
+main
 
 echo "testmain finish"
 # clean exit so lava-test can trust the results

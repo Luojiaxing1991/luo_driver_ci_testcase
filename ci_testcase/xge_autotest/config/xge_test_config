@@ -6,7 +6,7 @@
 # Test case mapping table
 declare -A case_map
 case_map=(
-["iperf_ge_port"]="off" 
+["iperf_ge_port"]="on" 
 ["iperf_xge_port"]="off"
 
 )
@@ -25,3 +25,11 @@ TEST_CASE_PATH="xge_autotest/case_script"
 
 # Start the machine environment IP
 BACK_IP=192.168.1.200
+
+
+tmp=`dmesg | grep -i "renamed from eth1 -w"`
+tmp1=`echo ${tmp%:*}`
+HNS_ETH1=`echo ${tmp1##* }`
+
+HNS_MIP="192.168.3.60"
+HNS_SIP="192.168.3.61"

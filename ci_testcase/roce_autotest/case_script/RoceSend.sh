@@ -16,7 +16,16 @@ function RoceSend()
 #       fi                                                                                   
 #   fi
 #   ssh root@${BACK_IP} " lsmod | grep \"hi1610_roce_test\" > /dev/null; if [  $? != 0     ]; then insmod ./roce/4120/hi1610_roce_test.ko > /dev/null 2>&1; if [ $? != 0 ]; then echo \"Client insmo    d fail\"; return 1; fi; fi; "
-	./${TEST_CASE_PATH}/roce-test -m 2 -s 2 -e 4 -r -f ${TEST_CASE_PATH}/test/test_case_list_server > ${FUNCNAME}_server.log &
+       echo "Check the eth3 is link or not"
+       if [ x"$IS_ETH3_OK" = x"no" ];then
+			echo "eth3 is link well,so test fail "
+			writeFail
+			return 0
+       fi
+	       	
+
+
+        ${TEST_CASE_PATH}/roce-test -m 2 -s 2 -e 4 -r -f ${TEST_CASE_PATH}/test/test_case_list_server > ${FUNCNAME}_server.log &
 	ClientFlag=`ssh root@${BACK_IP} "cd ${CASEPATH}/; ./roce-test -m 2 -s 2 -e 4 -r -f test_case_list_client > ../${FUNCNAME}_client.log; cd ../; grep -c \"\-test case success\" ${FUNCNAME}_client.log " `
 
 	wait 
