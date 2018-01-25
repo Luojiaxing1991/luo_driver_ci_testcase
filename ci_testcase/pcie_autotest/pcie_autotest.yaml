@@ -16,4 +16,4 @@ parse:
   pattern: '(?P<test_case_id>[ /a-zA-Z0-9]+): (?P<result>[A-Z]+)'
 run:
   steps:
-  - sudo ./ci_testcase/pcie_autotest/pcie_main.sh
+  - bash ./ci_testcase/pcie_autotest/pcie_main.sh
