@@ -2,13 +2,31 @@
 #
 #
 
+declare -A eth_map
+eth_map=(
+["eth0"]="eth0"
+["eth1"]="eth1"
+["eth2"]="eth2"
+["eth3"]="eth3"
+)
+
+#we update the eth rename info here
+for i in ${!eth_map[*]}
+do
+	tmp=`dmesg | grep -i "renamed from "$i -w`
+	tmp=`echo ${tmp%:*}`
+	tmp=`echo ${tmp##* }`
+        eth_map[$i]=$tmp
+	echo "The name of "$i" is renamed as "$eth_map[$i]
+done
 
 # Test case mapping table
 declare -A case_map
 case_map=(
-["iperf_ge_port"]="on" 
+["iperf_ge_port"]="off" 
 ["iperf_xge_port"]="off"
-
+["ping6_GE"]="off"
+["ifconfigtest"]="on"
 )
 
 #Number of threads
