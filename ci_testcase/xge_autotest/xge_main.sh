@@ -67,7 +67,7 @@ writeLogHeader
 # 
 setTrustRelation
 
-#main
+main
 
 # clean exit so lava-test can trust the results
 exit 0
