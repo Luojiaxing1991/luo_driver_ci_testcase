@@ -17,7 +17,7 @@ do
 	tmp=`echo ${tmp%:*}`
 	tmp=`echo ${tmp##* }`
         eth_map[$i]=$tmp
-	echo "The name of "$i" is renamed as "$eth_map[$i]
+	echo "The name of "$i" is renamed as "${eth_map[$i]}
 done
 
 # Test case mapping table
@@ -27,6 +27,7 @@ case_map=(
 ["iperf_xge_port"]="off"
 ["ping6_GE"]="off"
 ["ifconfigtest"]="on"
+["checksum_offload"]="on"
 )
 
 #Number of threads

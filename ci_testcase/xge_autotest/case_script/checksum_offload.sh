@@ -8,7 +8,7 @@ function checksum_offload()
    Test_Case_Title="set checksum offload(TX/RX)"
    Test_Case_ID="ST_XGE_CHECKSUM_OFFLOAD_000"
    :> D03checksum.txt
-   for i in eth0 eth1 eth2 eth3
+   for i in ${eth_map[*]}
    do
     ethtool -K $i rx on tx on
     ethtool -k $i | head -n 8 >> D03checksum.txt
