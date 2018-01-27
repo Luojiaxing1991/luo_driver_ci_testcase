@@ -56,6 +56,7 @@ writeLogHeader
 # Get all disk partition information
 get_all_disk_part
 
+#run the main function
 main
 
 # clean exit so lava-test can trust the results
