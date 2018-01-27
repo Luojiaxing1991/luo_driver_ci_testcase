@@ -46,6 +46,8 @@ function main()
 #PATH="./../bin:${PATH}"
 echo $(pwd)
 python ${SAS_TOP_DIR}/AddPath.py
+
+#we print the PATH
 echo $PATH
 
 #Output log file header
