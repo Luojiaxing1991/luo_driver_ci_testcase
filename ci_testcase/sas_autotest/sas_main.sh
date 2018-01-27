@@ -5,7 +5,7 @@ SAS_TOP_DIR=$(cd "`dirname $0`" ; pwd)
 
 # Load module configuration library
 . ${SAS_TOP_DIR}/config/sas_test_config
-source ${SAS_TOP_DIR}/config/sas_test_lib
+. ${SAS_TOP_DIR}/config/sas_test_lib
 
 # Load the public configuration library
 . ${SAS_TOP_DIR}/../config/common_config
