@@ -20,14 +20,14 @@ declare -A case_map=(
 #  2 - Disk negotiated link rate query.
 ["physical_data_rate"]="off"
 #  3 - File transfer stability test.
-["stable_2GB_file_transfer"]="off"
+["stable_2GB_file_transfer"]="on"
 #  4 - No cable unplug OOPs
 ["no_cable_unplug_oops"]="off"
 #  5 - Phy control through sysfs.
 #  "Be careful:This test case is used only in the environment where the board is connected directly to the disk."
 ["phy_control_through_sysfs"]="off"
 #  6 - support all available sas cores in the Soc.
-["support_available_sas_cores"]="off"
+["support_available_sas_cores"]="on"
 #  7 - support full sas function on all available phys.
 ["support_full_sas_function_all_available_phys"]="off"
 #  8 - Support SAS Narrow and Wide Ports.
@@ -39,7 +39,7 @@ declare -A case_map=(
 # 11 - support sata NCQ
 ["sata_ncq_query"]="off"
 # 12 - support Max devices
-["support_max_devices"]="off"
+["support_max_devices"]="on"
 # 13 - RAS support
 ["ras_support"]="off"
 )
