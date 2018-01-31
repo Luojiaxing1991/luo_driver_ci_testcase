@@ -23,9 +23,9 @@ done
 # Test case mapping table
 declare -A case_map
 case_map=(
-["iperf_ge_port"]="off" 
+["iperf_ge_port"]="on" 
 ["iperf_xge_port"]="off"
-["ping6_GE"]="off"
+["ping6_GE"]="on"
 ["ifconfigtest"]="on"
 ["checksum_offload"]="on"
 )

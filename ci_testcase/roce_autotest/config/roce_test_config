@@ -8,10 +8,10 @@ cfgdir=$(cd "`dirname $0`" ; pwd)
 # Test case mapping table
 declare -A case_map
 case_map=(
-["codecase"]="on" 
+["codecase"]="off" 
 ["gid-ip"]="off" 
 ["gid-mac"]="off" 
-["RoceSend"]="on" 
+["RoceSend"]="off" 
 ["RdmaRead"]="off" 
 ["RdmaWrite"]="off" 
 ["SupportPD"]="off" 
